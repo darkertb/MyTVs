@@ -763,32 +763,32 @@
 		
 		switch(channel){
 			case 'HIT' :
-				url = 'http://www.hitbox.tv/' + ID;
+				url = '//www.hitbox.tv/' + ID;
 				break;
 			case 'JTV' :
-				url = 'http://www.justin.tv/' + ID;
+				url = '//www.justin.tv/' + ID;
 				break;
 			case 'TTV' :
-				url = 'http://www.twitch.tv/' + ID;
+				url = '//www.twitch.tv/' + ID;
 				break;
 			case 'VL' :
-				url = 'http://vaughnlive.tv/' + ID;
+				url = '//vaughnlive.tv/' + ID;
 				break;
 			case 'UST' :
-				url = 'http://www.ustream.tv/channel/' + ID;
+				url = '//www.ustream.tv/channel/' + ID;
 				//alert('Ustream無法使用此功能');
 				break;
 			case 'YT' :
-				url = 'https://www.youtube.com/watch?v=' + ID;
+				url = '//www.youtube.com/watch?v=' + ID;
 				break;
 			case 'STUP' :
-				url = 'https://streamup.com/' + ID;
+				url = '//streamup.com/' + ID;
 				break;
 			case 'CC' :
-				url = 'http://www.connectcast.tv/' + ID;
+				url = '//www.connectcast.tv/' + ID;
 				break;
 			case 'LH' :
-				url = 'https://livehouse.in/channel/' + ID;
+				url = '//livehouse.in/channel/' + ID;
 				break;
 		}
 			
@@ -806,67 +806,67 @@
 		if(wType == 'chat'){
 			switch(channel){
 				case 'HIT' :
-					//url = 'http://www.hitbox.tv/embedchat/' + ID;
-					url = 'http://www.hitbox.tv/embedchat/' + ID + '?autoconnect=true';
+					//url = '//www.hitbox.tv/embedchat/' + ID;
+					url = '//www.hitbox.tv/embedchat/' + ID + '?autoconnect=true';
 					break;
 				case 'JTV' :
-					url = 'http://zh-tw.justin.tv/chat/embed?channel=' + ID + '&popout_chat=true';
+					url = '//zh-tw.justin.tv/chat/embed?channel=' + ID + '&popout_chat=true';
 					break;
 				case 'TTV' :
-					url = 'http://zh-tw.twitch.tv/chat/embed?channel=' + ID + '&popout_chat=true';
+					url = '//zh-tw.twitch.tv/chat/embed?channel=' + ID + '&popout_chat=true';
 					break;
 				case 'UST' :
-					url = 'http://www.ustream.tv/socialstream/' + ID + '?siteMode=1';
+					url = '//www.ustream.tv/socialstream/' + ID + '?siteMode=1';
 					break;
 				case 'CC' :
-					url = 'http://www.connectcast.tv/' + ID + '/chat';
+					url = '//www.connectcast.tv/' + ID + '/chat';
 					break;
 				case 'VL' :
-					url = 'http://vaughnlive.tv/popout/chat/' + ID;
+					url = '//vaughnlive.tv/popout/chat/' + ID;
 					break;
 				case 'STUP' :
-					url = 'https://streamup.com/' + ID + '/embeds/chatonly';
+					url = '//streamup.com/' + ID + '/embeds/chatonly';
 					//alert('Streamup無法使用此功能');
 					break;
 				case 'YT' :
-					//url = 'https://www.youtube.com/live_chat?v=' + ID;
-					url = 'https://www.youtube.com/live_chat?is_popout=1&v=' + ID + '&embed_domain=darkertb.pancakeapps.com';
+					//url = '//www.youtube.com/live_chat?v=' + ID;
+					url = '//www.youtube.com/live_chat?is_popout=1&v=' + ID + '&embed_domain=darkertb.pancakeapps.com';
 					break;
 				case 'LH' :
-					url = 'https://livehouse.in/embed/channel/' + ID + '/chatroom';
+					url = '//livehouse.in/embed/channel/' + ID + '/chatroom';
 					break;
 			}
 		}
 		else if(wType == 'video'){
 			switch(channel){
 				case 'HIT' :
-					url = 'http://www.hitbox.tv/embed/' + ID + '?popout=true&autoplay=true';
+					url = '//www.hitbox.tv/embed/' + ID + '?popout=true&autoplay=true';
 					break;
 				case 'JTV' :
-					url = 'http://www.justin.tv/widgets/live_embed_player.swf?channel=' + ID;
+					url = '//www.justin.tv/widgets/live_embed_player.swf?channel=' + ID;
 					break;
 				case 'TTV' :
-					//url = 'http://www.twitch.tv/widgets/live_embed_player.swf?channel=' + ID;
-					url = 'http://player.twitch.tv/?channel=' + ID;
+					//url = '//www.twitch.tv/widgets/live_embed_player.swf?channel=' + ID;
+					url = '//player.twitch.tv/?channel=' + ID;
 					break;
 				case 'UST' :
-					url = 'http://www.ustream.tv/embed/' + ID + '?v=3&wmode=direct';
+					url = '//www.ustream.tv/embed/' + ID + '?v=3&wmode=direct';
 					break;
 				case 'CC' :					
-					url = 'http://www.connectcast.tv/embed/' + ID;
+					url = '//www.connectcast.tv/embed/' + ID;
 					break;
 				case 'VL' :
-					url = 'http://vaughnlive.tv/embed/video/' + ID + '?viewers=true';
+					url = '//vaughnlive.tv/embed/video/' + ID + '?viewers=true';
 					break;
 				case 'STUP' :
-					url = 'https://streamup.com/' + ID + '/embeds/video';
-					//url = 'https://streamup.com/rooms/' + ID + 's-Channel/plugins/video/show?startMuted=false&autoplayAudio=true';;
+					url = '//streamup.com/' + ID + '/embeds/video';
+					//url = '//streamup.com/rooms/' + ID + 's-Channel/plugins/video/show?startMuted=false&autoplayAudio=true';;
 					break;
 				case 'YT' :
-					url = 'https://www.youtube.com/embed/' + ID + '?autoplay=true';
+					url = '//www.youtube.com/embed/' + ID + '?autoplay=true';
 					break;
 				case 'LH' :
-					url = 'https://livehouse.in/embed/channel/' + ID + '/video';
+					url = '//livehouse.in/embed/channel/' + ID + '/video';
 					break;
 			}
 		}
