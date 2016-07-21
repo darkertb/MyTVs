@@ -1,0 +1,106 @@
+<html>
+	<head>
+		<title>DarkerTV頁面產生器</title>		
+		<link href="icon.ico" rel="SHORTCUT ICON">
+		
+		<script type="text/javascript" src="libs/jquery1.9.1/jquery.min.js"></script>
+		<link rel="stylesheet" href = "libs/bootstrap/css/bootstrap.min.css">
+		<script src="libs/bootstrap/js/bootstrap.min.js"></script>		
+	</head>
+	
+	<body>
+	
+		<br />
+		
+		<form class="col-sm-10 form-horizontal" role="form">
+			<div class="form-group">
+				<label class="col-sm-2 control-label">實況ID</label>
+				<div class="col-sm-10">
+					<input id="stream-id" type="text" class="form-control"  placeholder="實況ID" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">平台</label>
+				<div class="col-sm-10">
+					<select id="stream-pla" class="form-control select-pla" />
+					</select>
+				</div>
+			</div>
+			
+			<br />
+			
+			<div class="form-group">
+				<label class="col-sm-2 control-label">聊天室ID</label>
+				<div class="col-sm-10">
+					<input id="chat-id" type="text" class="form-control"  placeholder="聊天室ID，空白則與實況相同" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">平台</label>
+				<div class="col-sm-10">
+					<select id="chat-pla" class="form-control select-pla" />
+					</select>
+				</div>
+			</div>		
+			
+			
+			<div class="form-group">
+				<label class="col-sm-2 control-label"></label>
+				<div class="col-sm-10">
+					<button id="openPage" type="button" class="btn btn-default">直接開啟</button>
+					<button id="gotoPage" type="button" class="btn btn-default">開啟新分頁</button>
+				</div>
+			</div>		
+
+			
+		</form>
+	<body>
+
+</html>
+
+<script>
+
+	var baseUrl = "https://darkertb.github.io/MyTV/";
+
+	var streamList = {
+		"TTV": "TwitchTV",
+		"VL": "VaughnLive",
+		"HIT": "Hitbox",
+		"STUP": "Streamup",
+		"LH": "LiveHouse",
+		"UST": "Ustream",
+		"CC": "ConnectCast",
+		"YT": "Youtube"
+	};
+	
+	for (var skey in streamList) {
+		$(".select-pla").append($("<option></option>").attr("value", skey).text(streamList[skey]));
+	}
+	
+	$(document).ready(function(){
+		$("#gotoPage").click(function(){
+			var newTab = window.open();
+			newTab.location= CombineUrl(); 
+		});
+		$("#openPage").click(function(){
+			window.location = CombineUrl();
+		});
+	});
+
+	function CombineUrl () {
+		var SID = $("#stream-id").val();
+		var SPla = $("#stream-pla").val();
+		var CID = $("#chat-id").val();
+		var CPla = $("#chat-pla").val();
+		
+		var url = baseUrl + "?video=" + SID + "-" + SPla + "&chat=";
+		
+		if (CID == "" || (CID == SID && SPla == CPla))
+			url += "same";
+		else 
+			url += CID + "-" + CPla;
+			
+		return url
+	}
+
+</script>
