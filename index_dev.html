@@ -273,19 +273,7 @@
 	*/
 		
 	//初始化API
-	function init () {
-		//turnOF(true);
-		
-		/*
-		//Firefox的選單寬度必須+1，否則顯示會有問題
-		var browserName = GetBrowserName();
-		
-		if (browserName == 'Firefox') {
-			var elem = document.getElementById('menu');
-			elem.style.maxWidth = parseInt(elem.style.maxWidth) + 1;
-		}
-		*/
-		
+	function init () {		
 		if (IsMobile()) {
 			menuOC();		
 			$('.menu-enabler').hide();
@@ -299,26 +287,8 @@
 		var getPara = getRequests();
 		
 		//如果沒有get參數, 不處理
-		if(getPara == null){
-			//版本判斷
-			
-			/*
-			if(cookies['version'] == null){
-				alert(messageFormat(findNewVersion + releaseNotes));
-				cookies['version'] = version;
-				newCookie = true;
-			}else if(parseFloat(cookies['version']) < parseFloat(version)){
-				//alert(messageFormat(findNewVersion + releaseNotes));
-				cookies['version'] = version;
-				newCookie = true;
-				if(parseFloat(cookies['version']) < 1.3)
-					cookies['wList'] = new Array();
-			}
-			*/	
-			
-			//newWindow('http://i.imgur.com/D9lC5qi.png', 392, 353, '萬里花真可愛');
+		if(getPara == null)
 			return;
-		}
 		
 		var videoInfo = getPara['video'];
 		var chatInfo = getPara['chat'];
@@ -634,20 +604,7 @@
 
 	//動態修正Iframe高度(%數
 	//動態更新Iframe尺寸
-	function RefreshIframeSize (id) {
-		/*
-		var elemW = document.getElementById(id);
-		var rH = elemW.style.height.replace('px', '');	
-		rH = (rH - 359) / 132;
-
-		var elemF = document.getElementById(id + 'F');
-		var nH = ( 94 + rH);
-		if(nH > 97)
-			nH = 97;
-			
-		elemF.style.height = nH + '%';
-		*/
-		
+	function RefreshIframeSize (id) {		
 		var elemW = document.getElementById(id);
 		var elemF = document.getElementById(id + 'F');
 		
