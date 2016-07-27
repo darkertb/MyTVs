@@ -256,22 +256,7 @@
 	var wList = new Array();
 
 	init();
-
-		
-	//alert('real:' + JSON.stringify(cookies).length + ' mini:' + getCookie('cookies').length);
-
-	/*
-	window1 = {id:'linzet', channel:'VL', type:'video', x:'30', y:'50', w:'800', h:'500', mini:'false', fid:'a01'};
-	window2 = {id:'linzet', channel:'VL', type:'video', x:'35', y:'55', w:'850', h:'550', mini:'false', fid:'a02'};
-		
-	var wlist = new Array();
-	wlist[0] = window1;
-	wlist[1] = window2;
-
-	arrayRemove(wlist, getWindowArrayIndex(wlist, 'a02'), true);
-	alert(JSON.stringify(wlist));
-	*/
-		
+    		
 	//初始化API
 	function init () {		
 		if (IsMobile()) {
@@ -307,8 +292,7 @@
 			
 		var url = getCHUrl(videoInfo, 'video', true);
 		var vChannel = channel;
-		
-		//newWindow(url, width, height, streamerId, streameType, left, top, windowType);
+				
 		newWindow(url, w, h, ID, channel, topOffset, 30, 'video');
 		if(chatInfo != null){
 			url = (chatInfo == 'same') ? getCHUrl(videoInfo, 'chat', true) : getCHUrl(chatInfo, 'chat', true);
@@ -770,7 +754,6 @@
 					url = '//zh-tw.justin.tv/chat/embed?channel=' + ID + '&popout_chat=true';
 					break;
 				case 'TTV' :
-					//url = '//zh-tw.twitch.tv/chat/embed?channel=' + ID + '&popout_chat=true';
 					url = '//www.twitch.tv/' + ID + '/chat';
 					break;
 				case 'UST' :
@@ -804,7 +787,6 @@
 					url = '//www.justin.tv/widgets/live_embed_player.swf?channel=' + ID;
 					break;
 				case 'TTV' :
-					//url = '//www.twitch.tv/widgets/live_embed_player.swf?channel=' + ID;
 					url = '//player.twitch.tv/?channel=' + ID;
 					break;
 				case 'UST' :
