@@ -6,6 +6,8 @@
 		<script type="text/javascript" src="libs/jquery1.9.1/jquery.min.js"></script>
 		<link rel="stylesheet" href = "libs/bootstrap/css/bootstrap.min.css">
 		<script src="libs/bootstrap/js/bootstrap.min.js"></script>		
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	
 	<body>
@@ -13,6 +15,13 @@
 		<br />
 		
 		<form class="col-sm-10 form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <select id="stream-list" class="form-control stream-list"></select>
+                </div>
+            </div>	
+
 			<div class="form-group">
 				<label class="col-sm-2 control-label">實況ID</label>
 				<div class="col-sm-10">
@@ -22,12 +31,11 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label">平台</label>
 				<div class="col-sm-10">
-					<select id="stream-pla" class="form-control select-pla" />
-					</select>
+					<select id="stream-pla" class="form-control select-pla"></select>
 				</div>
 			</div>
-			
-			<br />
+
+            <br />
 			
 			<div class="form-group">
 				<label class="col-sm-2 control-label">聊天室ID</label>
@@ -38,8 +46,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label">平台</label>
 				<div class="col-sm-10">
-					<select id="chat-pla" class="form-control select-pla" />
-					</select>
+                    <select id="chat-pla" class="form-control select-pla"></select>
 				</div>
 			</div>		
 			
@@ -54,28 +61,45 @@
 
 			
 		</form>
-	<body>
+	</body>
 
 </html>
 
 <script>
 
-	var baseUrl = "https://darkertb.github.io/MyTV/";
+    var baseUrl = "https://darkertb.github.io/MyTV/";
 
-	var streamList = {
-		"TTV": "TwitchTV",
-		"VL": "VaughnLive",
-		"HIT": "Hitbox",
-		"STUP": "Streamup",
-		"LH": "LiveHouse",
-		"UST": "Ustream",
-		"CC": "ConnectCast",
-		"YT": "Youtube"
-	};
-	
-	for (var skey in streamList) {
-		$(".select-pla").append($("<option></option>").attr("value", skey).text(streamList[skey]));
-	}
+    //====================.select-pla init====================
+    var streamPlaList = {
+        "TTV": "TwitchTV",
+        "VL": "VaughnLive",
+        "HIT": "Hitbox",
+        "STUP": "Streamup",
+        "LH": "LiveHouse",
+        "UST": "Ustream",
+        "CC": "ConnectCast",
+        "YT": "Youtube"
+    };
+
+    for (var skey in streamPlaList) {
+        $(".select-pla").append($("<option></option>").attr("value", skey).text(streamPlaList[skey]));
+    }
+    //========================================================
+
+    //====================.stream-list init====================
+    var streamList = {
+        "無": "null;null",
+        "小豆動畫台(VL&HIT)": "maiwaifuazusaazuki-VL;maiwaifuazusaazuki-HIT",
+        "小豆動畫台(VL)": "maiwaifuazusaazuki-VL;null",
+        "畫師Kumyka21(VL&LH)": "kumyka21-VL;522150-LH",
+        "女粉(LH)": "519246-LH;519246-LH",
+        "乾爹偶豚抬(TTV)": "kimikisstest11-TTV;kimikisstest11-TTV",
+    }; 
+
+    for (var skey in streamList) {
+        $(".stream-list").append($("<option></option>").attr("value", streamList[skey]).text(skey));
+    }
+    //========================================================
 	
 	$(document).ready(function(){
 		$("#gotoPage").click(function(){
@@ -87,18 +111,50 @@
 		});
 	});
 
+	$(".stream-list").change(function () {
+	    var streamInfo = $(".stream-list").val().split(";");        
+
+	    var videoInfo = streamInfo[0] != "null" ? streamInfo[0].split("-") : null;
+	    var chatInfo = streamInfo[1] != "null" ? streamInfo[1].split("-") : null;
+                
+	    if (videoInfo != null) {
+	        $("#stream-id").val(videoInfo[0]);
+	        $("#stream-pla").val(videoInfo[1]);
+	    } else {
+	        $("#stream-id").val("null");
+	    }
+        
+	    if (chatInfo != null) {
+	        $("#chat-id").val(chatInfo[0]);
+	        $("#chat-pla").val(chatInfo[1]);
+	    } else {
+	        $("#chat-id").val("null");
+	    }
+	});
+
 	function CombineUrl () {
 		var SID = $("#stream-id").val();
 		var SPla = $("#stream-pla").val();
 		var CID = $("#chat-id").val();
 		var CPla = $("#chat-pla").val();
-		
-		var url = baseUrl + "?video=" + SID + "-" + SPla + "&chat=";
-		
-		if (CID == "" || (CID == SID && SPla == CPla))
-			url += "same";
-		else 
-			url += CID + "-" + CPla;
+
+		var videoParam = (SID == "null" || SID == "") ? "" : ("video=" + SID + "-" + SPla);
+
+		var chatParam = (CID == "null" || (CID == "" && SID == "")) ? "" : "chat=";
+		if (CID != "null") {
+		    if (CID == "" || (CID == SID && SPla == CPla))
+		        chatParam += "same";
+		    else
+		        chatParam += CID + "-" + CPla;
+		}
+
+		var url = baseUrl;
+		if (videoParam != "") {
+		    url += "?" + videoParam;
+		}
+		if (chatParam != "") {
+		    url += (videoParam == "" ? "?" : "&") + chatParam;
+		}
 			
 		return url
 	}
