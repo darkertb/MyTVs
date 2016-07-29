@@ -16,7 +16,7 @@
     <br />
 
     <form class="col-sm-10 form-horizontal" role="form">
-
+        
         <div class="form-group">
             <label class="col-sm-2 control-label">原文</label>
             <div class="col-sm-10">
@@ -24,10 +24,17 @@
             </div>
         </div>
 
-        <br />
+        <div class="form-group">
+            <label class="col-sm-2 control-label">間隔字元</label>
+            <div class="col-sm-10">
+                <input id="interval-str" type="text" class="form-control" placeholder="請輸入字元" value="！" />
+            </div>
+        </div>
+
+        <hr>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">驚嘆號文</label>
+            <label class="col-sm-2 control-label">結果</label>
             <div class="col-sm-10">
                 <input id="result-str" type="text" class="form-control" placeholder="" />
             </div>
@@ -54,28 +61,33 @@
 
 	$(document).ready(function(){
 	    $("#create-btn").click(function () {
-	        var sourceStr = $('#source-str').val();
-	        var resultStr = CreateExclamationString(sourceStr);
+	        var resultStr = CreateExclamationString();
 
 	        $('#result-str').val(resultStr);
-		});
+	    });
+
+	    $("#interval-str").change(function () {
+	        var resultStr = CreateExclamationString();
+
+	        $('#result-str').val(resultStr);
+	    });
 
 	    $("#source-str").change(function () {
-	        var sourceStr = $('#source-str').val();
-	        var resultStr = CreateExclamationString(sourceStr);
+	        var resultStr = CreateExclamationString();
 
 	        $('#result-str').val(resultStr);
-		});
+	    });
 	});
 
 
-	function CreateExclamationString(sourceStr) {
+	function CreateExclamationString() {
+	    var sourceStr = $('#source-str').val();
 	    var sourceAry = sourceStr.split('');
-
+	    var intervalWord = $('#interval-str').val();
 	    var resultStr = '';
 
 	    for (var key in sourceAry) {
-	        resultStr += sourceAry[key] + '！';
+	        resultStr += sourceAry[key] + intervalWord;
 	    }
 
 	    return resultStr;
