@@ -106,13 +106,13 @@
 						    <optgroup label="永遠的大哥">
 							    <option value='su3cj3x04-JTV'>su3cj3x04(大哥-JustinTV)</option> 
 						    </optgroup>
-						    <optgroup label="死去">
+						    <!-- optgroup label="死去">
 							    <option value='198388-LH'>linzet(LZ-LiveHouse)</option>
 							    <option value='nakedserjun-VL'>nakedserjun(社長-VaughnLive)</option>
 							    <option value='solidserjun-VL'>solidserjun(社長-VaughnLive)</option>
 							    <option value='liquidserjun-VL'>liquidserjun(社長2-VaughnLive)</option>
 							    <option value='linzet-VL'>linzet(LZ-VaughnLive)</option>
-						    </optgroup>
+						    </optgroup -->
 						     <!-- 
 						    <option value='Udry-HIT'>Udry(LZ-Hitbox)</option>
 						    <option value='Linzet-HIT'>Linzet(LZ-Hitbox)</option>
@@ -840,6 +840,15 @@
 	//從列表取得資訊
 	function GetChannelInfo (keyName, channelStr) {
 		strArray = channelStr.split("-");
+		if (strArray.length > 2) {
+			var streamId = '';
+			for(var i = 0; i < strArray.length - 1; i++) {
+				streamId += (i != 0 ?'-' : '') + strArray[i];
+			}
+			strArray[0] = streamId;
+			strArray[1] = strArray[strArray.length - 1];
+		}
+		
 		if(keyName == "name")
 			return strArray[0];
 		else if(keyName == "type")
@@ -850,7 +859,7 @@
 	function GetPlatformList () {
 		return result = [
 			{'key': 'TTV', 'name': 'TwitchTV'},
-			{'key': 'STUP', 'name': 'Streamup'},
+			{'key': 'STUP', 'name': 'Streamup'}, 
 			{'key': 'LH', 'name': 'LiveHouse'},
 			{'key': 'YT', 'name': 'Youtube'},
 			{'key': 'HIT', 'name': 'Hitbox'},
