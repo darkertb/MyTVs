@@ -852,11 +852,11 @@
 		if(keyName == "name") {
 			//如果ary不只兩個代表頻道名含有 - 字符，需要另外做拼裝
 			if (strArray.length > 2) {
-				for(var i = 0; i < strArray.length - 1; i++) {
+				for(var i = 0; i < strArray.length - 1; i++) 
 					result += (i != 0 ?'-' : '') + strArray[i];
 			} 
 			else {
-				result strArray[0];
+				result = strArray[0];
 			}
 		}
 		else if(keyName == "type") {
@@ -876,6 +876,7 @@
 			{'key': 'VL', 'name': 'VaughnLive'},
 			{'key': 'UST', 'name': 'Ustream'},
 			{'key': 'CC', 'name': 'ConnectCast'},
+			{'key': 'AFTV', 'name': 'AfreecaTV'},
 		];
 	}
 
