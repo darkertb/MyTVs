@@ -119,8 +119,8 @@
 	$(".stream-list").change(function () {
 	    var streamInfo = $(".stream-list").val().split(";");        
 
-	    var videoInfo = streamInfo[0] != "null" ? streamInfo[0].split("-") : null;
-	    var chatInfo = streamInfo[1] != "null" ? streamInfo[1].split("-") : null;
+	    var videoInfo = SplitInfo(streamInfo[0]);
+	    var chatInfo = SplitInfo(streamInfo[1]);
                 
 	    if (videoInfo != null) {
 	        $("#stream-id").val(videoInfo[0]);
@@ -162,6 +162,28 @@
 		}
 			
 		return url
+	}
+
+	function SplitInfo(cInfo) {
+	    if (cInfo == null || cInfo.indexOf('-') == -1)
+	        return null;
+
+	    strArray = cInfo.split("-");
+
+	    var result = { 0: '', 1: '' };
+
+	    //如果ary不只兩個代表頻道名含有 - 字符，需要另外做拼裝
+	    if (strArray.length > 2) {
+	        for (var i = 0; i < strArray.length - 1; i++) 
+	            result[0] += (i != 0 ? '-' : '') + strArray[i];
+	    }
+	    else {
+	        result[0] = strArray[0];
+	    }
+        
+	    result[1] = strArray[strArray.length - 1];
+
+	    return result;
 	}
 
 	//js-end
