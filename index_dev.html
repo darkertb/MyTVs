@@ -164,9 +164,9 @@
 	//http://zh-tw.justin.tv/widgets/live_embed_player.swf?channel=gannipizza&auto_play=true
 
 	//版本號
-	version = '2.1.0';
+	version = '2.1.1';
 	//最後更新日
-	lastUpdate = '2016/07/29';
+	lastUpdate = '2016/08/10';
 	//當發現新版本時的預設title
 	findNewVersion = '新版本:' + version + '　　最後更新:' + lastUpdate + '||';
 	//是否寫入新版cookie flag
@@ -279,7 +279,16 @@
 			return;
 		
 		var videoInfo = getPara['video'];
+		if (videoInfo == null)
+			videoInfo = getPara['vid'];
+		if (videoInfo == null)
+			videoInfo = getPara['v'];
+			
 		var chatInfo = getPara['chat'];
+		if (chatInfo == null)
+			chatInfo = getPara['cht'];
+		if (chatInfo == null)
+			chatInfo = getPara['c'];
 			
 		var w = getPara['w'];
 		var h = getPara['h'];
