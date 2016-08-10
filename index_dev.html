@@ -164,7 +164,7 @@
 	//http://zh-tw.justin.tv/widgets/live_embed_player.swf?channel=gannipizza&auto_play=true
 
 	//版本號
-	version = '2.1.1';
+	version = '2.1.2';
 	//最後更新日
 	lastUpdate = '2016/08/10';
 	//當發現新版本時的預設title
@@ -310,7 +310,7 @@
 		}
 
 		if(chatInfo != null){
-			url = (chatInfo == 'same') ? getCHUrl(videoInfo, 'chat', true) : getCHUrl(chatInfo, 'chat', true);
+			url = (chatInfo == 'same' || chatInfo == 's') ? getCHUrl(videoInfo, 'chat', true) : getCHUrl(chatInfo, 'chat', true);
 			newWindow(url, 350, parseInt(h) + chatHeightOffset, ID, channel, parseInt(w), topOffset, 'chat');
 		}
 		

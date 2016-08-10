@@ -143,12 +143,12 @@
 		var CID = $("#chat-id").val();
 		var CPla = $("#chat-pla").val();
 
-		var videoParam = (SID == "null" || SID == "") ? "" : ("video=" + SID + "-" + SPla);
+		var videoParam = (SID == "null" || SID == "") ? "" : ("v=" + SID + "-" + SPla);
 
-		var chatParam = (CID == "null" || (CID == "" && SID == "")) ? "" : "chat=";
+		var chatParam = (CID == "null" || (CID == "" && SID == "")) ? "" : "c=";
 		if (CID != "null") {
 		    if (CID == "" || (CID == SID && SPla == CPla))
-		        chatParam += "same";
+		        chatParam += "s";
 		    else
 		        chatParam += CID + "-" + CPla;
 		}
