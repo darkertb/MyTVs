@@ -51,8 +51,9 @@
 						    <option value='TTV'>TwitchTV</option>
 						    <option value='JTV'>JustinTV - 已死亡</option>
 						    <option value='CC'>ConnectCast</option>
-						    <option value='YT'>Youtube</option>
-						    <option value='AFTV'>AfreecaTV</option>
+                            <option value='BEAM'>Beam</option>
+                            <option value='YT'>Youtube</option>
+						    <!-- <option value='AFTV'>AfreecaTV</option> -->
 						    </select>
 					    </td>
 					    <td>
@@ -802,6 +803,9 @@
 				case 'LH' :
 					url = '//livehouse.in/embed/channel/' + ID + '/chatroom';
 					break;
+			    case 'BEAM':
+			        url = '//beam.pro/embed/chat/' + ID + '/chatroom';
+                    break;
 			}
 		}
 		else if(wType == 'video'){
@@ -838,6 +842,9 @@
 				case 'LH' :
 					url = '//livehouse.in/embed/channel/' + ID + '/video';
 					break;
+                case 'BEAM':
+                    url = '//beam.pro/embed/player/' + ID + '/chatroom';
+                    break;
 			}
 		}
 		
