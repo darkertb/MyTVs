@@ -77,6 +77,7 @@ function GetChannelInfo () {
 	var info = [
 		{'key': 'twitch', 'url': 'www.twitch.tv/', 'channel': 'TTV'},
 		{'key': 'vaughnlive', 'url': 'vaughnlive.tv/', 'channel': 'VL'},
+		{'key': 'breakers', 'url': 'breakers.tv/', 'channel': 'BRK'},
 		{'key': 'hitbox', 'url': 'www.hitbox.tv/', 'channel': 'HIT'},
 		{'key': 'ustream', 'url': 'www.ustream.tv/channel/', 'channel': 'UST'},
 		{'key': 'youtube', 'url': 'www.youtube.com/watch?v=', 'channel': 'YT'},
