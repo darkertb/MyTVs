@@ -181,6 +181,21 @@
 	var topOffset = 0;
 	var chatHeightOffset = 30;
 	
+	//平台列表
+	var platformList = [
+			{'key': 'TTV', 'name': 'TwitchTV', 'sourceUrl': 'http://www.hitbox.tv/{ID}'},
+			{'key': 'STUP', 'name': 'Streamup', 'sourceUrl': 'https://streamup.com/{ID}'}, 
+			{'key': 'LH', 'name': 'LiveHouse', 'sourceUrl': 'https://livehouse.in/channel/{ID}'},
+			{'key': 'YT', 'name': 'Youtube'},
+			{'key': 'HIT', 'name': 'Hitbox'},
+			{'key': 'VL', 'name': 'VaughnLive'},
+			{'key': 'BRK', 'name': 'Breakers'},
+			{'key': 'UST', 'name': 'Ustream'},
+			{'key': 'CC', 'name': 'ConnectCast'},
+			{'key': 'AFTV', 'name': 'AfreecaTV'},
+			{'key': 'BEAM', 'name': 'Beam'},
+		];
+	
 
 	/*
 	releaseNotes = '新增:|\t-現在視窗存檔可以存五個了。||修改:|\t-壓縮cookie字串長度，以便儲存更多資料。';
@@ -896,25 +911,7 @@
 		return result;
 	}
 
-	function GetPlatformList () {
-		return result = [
-			{'key': 'TTV', 'name': 'TwitchTV'},
-			{'key': 'STUP', 'name': 'Streamup'}, 
-			{'key': 'LH', 'name': 'LiveHouse'},
-			{'key': 'YT', 'name': 'Youtube'},
-			{'key': 'HIT', 'name': 'Hitbox'},
-			{'key': 'VL', 'name': 'VaughnLive'},
-			{'key': 'BRK', 'name': 'Breakers'},
-			{'key': 'UST', 'name': 'Ustream'},
-			{'key': 'CC', 'name': 'ConnectCast'},
-			{'key': 'AFTV', 'name': 'AfreecaTV'},
-			{'key': 'BEAM', 'name': 'Beam'},
-		];
-	}
-
-	function GetFullName (key) {	
-		var platformList = GetPlatformList();
-		
+	function GetFullName (key) {			
 		for (var i = 0; i < platformList.length; i++) {
 			
 			if (platformList[i]['key'].indexOf(key) > -1) {
