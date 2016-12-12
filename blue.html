@@ -12,8 +12,8 @@
     function chatOC () {
     
        console.log('Requesting Bluetooth Device...');
-          navigator.bluetooth.requestDevice(
-            {filters: [{}]})
+          navigator.bluetooth.requestDevice({
+            acceptAllDevices:true})
           .then(device => {
             console.log('Connecting to GATT Server...');
             return device.gatt.connect();
