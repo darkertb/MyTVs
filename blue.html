@@ -12,8 +12,7 @@
     console.log(navigator);
     function chatOC () {
     
-        function onButtonClick() {
-          console.log('Requesting Bluetooth Device...');
+       console.log('Requesting Bluetooth Device...');
           navigator.bluetooth.requestDevice(
             {filters: [{services: ['battery_service']}]})
           .then(device => {
@@ -39,7 +38,6 @@
           .catch(error => {
             console.log('Argh! ' + error);
           });
-        }
     
     //    playbulbCandle.request()
     //  .then(_ => playbulbCandle.connect())
