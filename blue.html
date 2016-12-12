@@ -9,7 +9,6 @@
 </html>
 
 <script>
-    console.log(navigator);
     function chatOC () {
     
        console.log('Requesting Bluetooth Device...');
@@ -38,6 +37,9 @@
           .catch(error => {
             console.log('Argh! ' + error);
           });
+          
+          
+        console.log(navigator.bluetooth);
     
     //    playbulbCandle.request()
     //  .then(_ => playbulbCandle.connect())
