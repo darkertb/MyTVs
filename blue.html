@@ -13,7 +13,7 @@
     
        console.log('Requesting Bluetooth Device...');
           navigator.bluetooth.requestDevice(
-            {filters: [{services: ['battery_service']}]})
+            {acceptAllDevices:true})
           .then(device => {
             console.log('Connecting to GATT Server...');
             return device.gatt.connect();
