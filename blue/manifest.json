@@ -1,10 +1,10 @@
 {
   "name": "My App",
   "description": "My elevator pitch goes here",
-  "launch_path": "/index.html",
+  "launch_path": "index.html",
   "icons": {
-    "512": "/img/icon-512.png",
-    "128": "/img/icon-128.png"
+    "512": "icon.jpg",
+    "128": "icon.jpg"
   },
   "developer": {
     "name": "Your name or organization",
